@@ -1,3 +1,0 @@
-HelloName hello my name is {firstname}
-HelloName i am called {firstname}
-HelloName i am {firstname}

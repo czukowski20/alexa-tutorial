@@ -1,6 +1,3 @@
-from __future__ import print_function
-import json
-
 
 # --------------- Helpers that build all of the responses ----------------------
 
@@ -26,25 +23,25 @@ def build_response(session_attributes, speechlet_response):
 
 def get_welcome_response():
 	session_attributes = {}
-	card_title = "Welcome"
-	speech_output = "Hello World "
+	card_title = "Hi!"
+	speech_output = "Hello and welcome to this Alexa tutorial! To get started, say 'My name is' and then your name!"
 	reprompt_text = None
 	should_end_session = True
 	return build_response(session_attributes, build_speechlet_response(speech_output, should_end_session))
 
 
 def handle_session_end_request():
-	card_title = "Session Ended"
-	speech_output = "Goodbye " 
+	card_title = "Goodbye!"
+	speech_output = "Goodbye! Have a great day!" 
 	should_end_session = True
 	return build_response({}, build_speechlet_response(speech_output, should_end_session))
 
 
 def hello_name(intent, session):
 	session_attributes = {}
-	firstname = intent['slots']['firstname']['value']
+	first_name = intent['slots']['first_name']['value']
 	reprompt_text = None
-	speech_output = 'Hello {} Nice to Meet You'.format(firstname)
+	speech_output = 'Hello {name}! Nice to meet you!'.format(name=first_name)
 	should_end_session = True
 	return build_response(session_attributes, build_speechlet_response(speech_output, should_end_session))
 
